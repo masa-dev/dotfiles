@@ -50,6 +50,20 @@ require("lazy").setup({
     },
   },
 
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function()
+      require("pluginconfig.neo-tree")
+    end,
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -151,7 +165,7 @@ require("lazy").setup({
       { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
     },
     config = function()
-      require("pluginlist")
+      require("pluginconfig.telescope")
     end,
   },
 
