@@ -25,3 +25,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+-- Neo-treeが閉じられたときに自動で他のバッファも閉じる設定
+vim.api.nvim_create_autocmd("BufWinLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "neo-tree" then
+      vim.cmd("q") -- Neo-treeが閉じられると同時にバッファも閉じる
+    end
+  end,
+})
