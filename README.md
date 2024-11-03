@@ -26,6 +26,10 @@ cd ~/bin
 chmod +x win32yank.exe 
 
 sudo apt install wl-clipboard -y
+
+# telescopeのgrepsearchに必要
+sudo apt install ripgrep # windows
+brew install ripgrep     # mac
 ```
 
 WSL2でwin32yankを入れた際には`.bashrc`に以下の内容を追加
