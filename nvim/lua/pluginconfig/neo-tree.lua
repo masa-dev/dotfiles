@@ -7,4 +7,10 @@ neotree.setup({
       ["<space>"] = "",
     },
   },
+  -- Show hidden files by default
+  filesystem = {
+    filtered_items = {
+      visible = true,
+    },
+  },
 })
