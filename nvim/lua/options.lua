@@ -6,7 +6,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 -- クリップボードを同期する
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 -- インデントの自動折り返し
 vim.opt.breakindent = true
@@ -49,3 +49,5 @@ vim.opt.cursorline = true
 
 -- カーソルの上下に最低限確保する画面行数を設定
 vim.opt.scrolloff = 10
+
+vim.opt.termguicolors = true
