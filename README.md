@@ -30,6 +30,18 @@ sudo apt install wl-clipboard -y
 # telescopeのgrepsearchに必要
 sudo apt install ripgrep # windows
 brew install ripgrep     # mac
+
+
+# lsp
+## dotnet
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
+
+## node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install --lts
+npm install -g typescript typescript-language-server
+
 ```
 
 WSL2でwin32yankを入れた際には`.bashrc`に以下の内容を追加

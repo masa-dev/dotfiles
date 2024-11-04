@@ -125,6 +125,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+local util = require("lspconfig.util")
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -162,6 +164,38 @@ local servers = {
       },
     },
   },
+  csharp_ls = {
+    cmd = { "csharp-ls" },
+    filetype = { "cs" },
+    init_options = {
+      AutomaticWorkspaceInit = true,
+    },
+    root_dir = function(fname)
+      return util.root_pattern("*.sln")(fname) or util.root_pattern("*.csproj")(fname)
+    end,
+  },
+  ts_ls = {
+    cmd = { "typescript-language-server", "--stdio" },
+    filetype = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+    },
+    init_options = {
+      hostInfo = "neovim",
+      plugins = {
+        {
+          name = "@vue/typescript-plugin",
+          location = "~/.nvm/versions/node/v22.11.0/lib/node_modules/@vue/typescript-plugin",
+          languages = { "javascript", "typescript", "vue" },
+        },
+      },
+    },
+  },
 }
 
 -- Ensure the servers and tools above are installed
@@ -192,4 +226,3 @@ require("mason-lspconfig").setup({
     end,
   },
 })
-
