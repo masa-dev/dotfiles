@@ -381,6 +381,15 @@ require("lazy").setup({
     end,
   },
 
+  -- {
+  --   "Mofiqul/vscode.nvim",
+  --   priority = 1001,
+  --   init = function ()
+  --     vim.cmd.colorscheme("vscode")
+  --     vim.cmd.hi("Comment gui=none")
+  --   end
+  -- },
+
   -- Highlight todo, notes, etc in comments
   {
     "folke/todo-comments.nvim",
