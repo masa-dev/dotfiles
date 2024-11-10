@@ -12,6 +12,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- xamlをxmlとして認識させてハイライトする
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.xaml",
+  callback = function()
+    vim.bo.filetype = "xml"
+  end,
+})
+
 -- ファイルごとのインデント幅を調整
 local filetype_tabstop = { lua = 2, markdown = 2, javascript = 2, csharp = 4 }
 local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true })
