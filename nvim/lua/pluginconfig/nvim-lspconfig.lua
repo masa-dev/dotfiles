@@ -73,6 +73,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- or a suggestion from your LSP for this to activate.
     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 
+    map("<leader>ch", vim.lsp.buf.hover, "[C]ode [H]over", { "n", "x" })
+
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
