@@ -49,3 +49,7 @@ WSL2でwin32yankを入れた際には`.bashrc`に以下の内容を追加
 ```bash
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 ```
+
+Nerd Font
+https://www.nerdfonts.com/font-downloads
+
