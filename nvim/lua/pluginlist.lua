@@ -313,6 +313,7 @@ require("lazy").setup({
       end,
       formatters_by_ft = {
         lua = { "stylua" },
+        vue = { "prettier" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -379,6 +380,12 @@ require("lazy").setup({
       -- You can configure highlights by doing something like:
       vim.cmd.hi("Comment gui=none")
     end,
+  },
+
+  {
+    "projekt0n/github-nvim-theme",
+    priority = 999,
+    name = "github-theme",
   },
 
   -- {
