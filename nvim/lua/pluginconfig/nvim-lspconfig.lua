@@ -172,6 +172,13 @@ local servers = {
     init_options = {
       AutomaticWorkspaceInit = true,
     },
+    settings = {
+      csharp = {
+        completion = {
+          showCompletionItemsFromUnimportedNamespaces = true,
+        },
+      },
+    },
     root_dir = function(fname)
       return util.root_pattern("*.sln")(fname) or util.root_pattern("*.csproj")(fname)
     end,
