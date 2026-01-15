@@ -176,6 +176,21 @@ local servers = {
       csharp = {
         completion = {
           showCompletionItemsFromUnimportedNamespaces = true,
+          provideRegexCompletions = true,
+        },
+        semanticHighlighting = {
+          enabled = true,
+        },
+        inlayHints = {
+          enabled = true,
+          enableInlayHintsForParameters = true,
+          enableInlayHintsForLiteralParameters = true,
+          enableInlayHintsForIndexerParameters = true,
+          enableInlayHintsForObjectCreationParameters = true,
+          enableInlayHintsForOtherParameters = true,
+          suppressInlayHintsForParametersThatDifferOnlyBySuffix = true,
+          suppressInlayHintsForParametersThatMatchMethodIntent = true,
+          suppressInlayHintsForParametersThatMatchArgumentName = true,
         },
       },
     },
@@ -221,7 +236,8 @@ require("mason-lspconfig").setup({
       -- by the server configuration above. Useful when disabling
       -- certain features of an LSP (for example, turning off formatting for tsserver)
       server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-      require("lspconfig")[server_name].setup(server)
+      vim.lsp.config(server_name, server)
+      vim.lsp.enable(server_name)
     end,
   },
 })
@@ -279,6 +295,8 @@ local vue_ls_config = {
   end,
 }
 
-local lspconfig = require("lspconfig")
-lspconfig.vtsls.setup(vtsls_config)
-lspconfig.vue_ls.setup(vue_ls_config)
+vim.lsp.config("vtsls", vtsls_config)
+vim.lsp.enable("vtsls")
+
+vim.lsp.config("vue_ls", vue_ls_config)
+vim.lsp.enable("vue_ls")
